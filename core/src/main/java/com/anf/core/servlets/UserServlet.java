@@ -34,7 +34,7 @@ import java.io.IOException;
  * Begin Code
  * Name - Abhinav Chatharaboina*
  */
-@Component(service = { Servlet.class })
+@Component(service = {Servlet.class})
 @SlingServletPaths(
         value = "/bin/saveUserDetails"
 )
@@ -61,13 +61,13 @@ public class UserServlet extends SlingAllMethodsServlet {
     @Override
     protected void doPost(final SlingHttpServletRequest req, final SlingHttpServletResponse resp) throws ServletException, IOException {
         boolean isValidAge = contentService.validateAge(req);
-        try{
-            if(isValidAge){
+        try {
+            if (isValidAge) {
                 //write data to repo once age is valid
                 contentService.commitUserDetails(req);
                 resp.setStatus(HttpStatus.SC_OK);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             isValidAge = false;
             resp.setStatus(HttpStatus.SC_INTERNAL_SERVER_ERROR);
             LOG.error("Error saving user details", e);

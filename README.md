@@ -1,8 +1,8 @@
 # Abercrombie AEM Developer Skill Assessment
 
-## Solution Steps (Important)
+## Solutions (Important)
 1. Updated bnd plugin and frontend-maven-plugin to resolve build issues across the different Operating systems
-2. Adding the scripts for system-user creation automatically
+2. Adding the scripts for system-user creation automatically and ACL Permissions
 2. For Exercise-1, access the page through `http://localhost:4502/content/anf-code-challenge/us/en/test-form.html?wcmmode=disabled`
 3. For Exercise-2,
    1. access the news feed through `http://localhost:4502/content/anf-code-challenge/us/en/news-feed.html?wcmmode=disabled`

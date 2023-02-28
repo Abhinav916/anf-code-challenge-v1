@@ -37,6 +37,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 /***
  * Begin Code
  * Name - Abhinav Chatharaboina*
+ *
+ *  * Test case by importing content through JSON
  */
 @ExtendWith({AemContextExtension.class, MockitoExtension.class})
 class NewsFeedModelTest2 {

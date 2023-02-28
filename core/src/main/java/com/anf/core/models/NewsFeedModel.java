@@ -40,7 +40,7 @@ public class NewsFeedModel {
 
         Resource newResource = resourceResolver.getResource(NEWS_FEED_DATA_PATH);
         //Getting news feed resource
-        if(Objects.nonNull(newResource)){
+        if (Objects.nonNull(newResource)) {
             LOG.info("News Feed Data Found");
             Iterator<Resource> resource = newResource.listChildren();
             while (resource.hasNext()) {
@@ -63,5 +63,5 @@ public class NewsFeedModel {
     }
 
     /* End Code*/
-        
+
 }

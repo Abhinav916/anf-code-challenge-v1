@@ -58,7 +58,7 @@ public class CountryServlet extends SlingSafeMethodsServlet {
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
-        try{
+        try {
             ResourceResolver resourceResolver = request.getResourceResolver();
             Resource jsonResource = resourceResolver.getResource(anfConfig.countryJsonPath());
             assert jsonResource != null;
@@ -79,7 +79,7 @@ public class CountryServlet extends SlingSafeMethodsServlet {
 
             setDataSource(request, stringBuilder.toString());
 
-        } catch(JSONException | IOException e){
+        } catch (JSONException | IOException e) {
             LOG.error("Could not extract json data={}", e.getMessage());
         }
     }

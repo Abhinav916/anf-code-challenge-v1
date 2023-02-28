@@ -38,8 +38,8 @@ import java.util.List;
 @SlingServletResourceTypes(resourceTypes = "anf-code-challenge/components/page",
         methods = HttpConstants.METHOD_GET, selectors = "queryBuilder", extensions = "txt")
 @ServiceDescription("Retrieve First 10 pages with Query Builder API")
-@Designate(ocd= ANFConfig.class)
-public class PageListByQueryBuilderAPI extends SlingSafeMethodsServlet{
+@Designate(ocd = ANFConfig.class)
+public class PageListByQueryBuilderAPI extends SlingSafeMethodsServlet {
 
     private static final long serialVersionUID = 1L;
     private static final Logger LOG = LoggerFactory.getLogger(PageListByQueryBuilderAPI.class.getName());
@@ -54,7 +54,7 @@ public class PageListByQueryBuilderAPI extends SlingSafeMethodsServlet{
 
     @Activate
     @Modified
-    public void activate(ANFConfig config){
+    public void activate(ANFConfig config) {
         this.anfConfig = config;
     }
 
@@ -70,7 +70,7 @@ public class PageListByQueryBuilderAPI extends SlingSafeMethodsServlet{
             predicateMap.put("type", "cq:Page");
             predicateMap.put("property", "jcr:content/anfCodeChallenge");
             predicateMap.put("property.operation", "exists");
-            predicateMap.put("orderby","@jcr:created");
+            predicateMap.put("orderby", "@jcr:created");
             predicateMap.put("p.limit", "10");
 
             //Creating Query using through predicate key_value

@@ -36,8 +36,8 @@ import java.util.List;
 @SlingServletResourceTypes(resourceTypes = "anf-code-challenge/components/page",
         methods = HttpConstants.METHOD_GET, selectors = "sql2", extensions = "txt")
 @ServiceDescription("Retrieve First 10 pages with JCR SQL2 Query")
-@Designate(ocd= ANFConfig.class)
-public class PageListBySQL2 extends SlingSafeMethodsServlet{
+@Designate(ocd = ANFConfig.class)
+public class PageListBySQL2 extends SlingSafeMethodsServlet {
 
     private static final long serialVersionUID = 1L;
     private static final Logger LOG = LoggerFactory.getLogger(PageListBySQL2.class.getName());
@@ -49,7 +49,7 @@ public class PageListBySQL2 extends SlingSafeMethodsServlet{
 
     @Activate
     @Modified
-    public void activate(ANFConfig config){
+    public void activate(ANFConfig config) {
         this.anfConfig = config;
     }
 
@@ -64,7 +64,7 @@ public class PageListBySQL2 extends SlingSafeMethodsServlet{
 
             Query query = queryManager.createQuery(queryString, Query.JCR_SQL2);
             query.setLimit(10);
-            
+
             final QueryResult queryResult = query.execute();
             NodeIterator pages = queryResult.getNodes();
             List<String> pageList = new LinkedList<>();

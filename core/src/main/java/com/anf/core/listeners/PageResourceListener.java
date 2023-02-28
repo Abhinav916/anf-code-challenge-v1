@@ -21,10 +21,10 @@ import java.util.Objects;
  * Name - Abhinav Chatharaboina*
  */
 @Component(service = ResourceChangeListener.class, property = {
-    ResourceChangeListener.PATHS + "=" + "/content/anf-code-challenge/us/en",
-    ResourceChangeListener.CHANGES + "=" + "ADDED"
+        ResourceChangeListener.PATHS + "=" + "/content/anf-code-challenge/us/en",
+        ResourceChangeListener.CHANGES + "=" + "ADDED"
 })
-public class PageResourceListener implements ResourceChangeListener{
+public class PageResourceListener implements ResourceChangeListener {
 
     private static final Logger LOG = LoggerFactory.getLogger(PageResourceListener.class);
 

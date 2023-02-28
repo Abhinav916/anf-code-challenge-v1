@@ -40,6 +40,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /***
  * Begin Code
  * Name - Abhinav Chatharaboina*
+ *
+ * Test case by dummy resource creation with the required properties
+ * and adapting to sling model
  */
 @ExtendWith({AemContextExtension.class, MockitoExtension.class})
 class NewsFeedModelTest {
