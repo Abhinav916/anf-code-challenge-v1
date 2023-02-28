@@ -79,4 +79,6 @@
             </container>
         </root>
     </jcr:content>
+    <test-form/>
+    <thank-you/>
 </jcr:root>
