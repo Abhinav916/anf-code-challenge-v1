@@ -1,0 +1,164 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > NewsFeedModel</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.anf.core.models</a>
+</div>
+
+<h1>Coverage Summary for Class: NewsFeedModel (com.anf.core.models)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">NewsFeedModel</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (18/18)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.anf.core.models;
+&nbsp;
+&nbsp;import com.adobe.cq.export.json.ExporterConstants;
+&nbsp;import com.anf.core.bean.NewsFeed;
+&nbsp;import org.apache.sling.api.SlingHttpServletRequest;
+&nbsp;import org.apache.sling.api.resource.Resource;
+&nbsp;import org.apache.sling.api.resource.ResourceResolver;
+&nbsp;import org.apache.sling.api.resource.ValueMap;
+&nbsp;import org.apache.sling.models.annotations.Exporter;
+&nbsp;import org.apache.sling.models.annotations.Model;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.SlingObject;
+&nbsp;import org.slf4j.Logger;
+&nbsp;import org.slf4j.LoggerFactory;
+&nbsp;
+&nbsp;import javax.annotation.PostConstruct;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Iterator;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;
+&nbsp;@Model(adaptables = {SlingHttpServletRequest.class, Resource.class})
+&nbsp;@Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
+<b class="fc">&nbsp;public class NewsFeedModel {</b>
+<b class="fc">&nbsp;    private static final Logger LOG = LoggerFactory.getLogger(NewsFeedModel.class.getName());</b>
+&nbsp;
+&nbsp;    private static final String NEWS_FEED_DATA_PATH = &quot;/var/commerce/products/anf-code-challenge/newsData&quot;;
+&nbsp;
+&nbsp;    private List&lt;NewsFeed&gt; newsFeeds;
+&nbsp;
+&nbsp;    @SlingObject
+&nbsp;    private ResourceResolver resourceResolver;
+&nbsp;
+&nbsp;    @PostConstruct
+&nbsp;    protected void init() {
+<b class="fc">&nbsp;        newsFeeds = new ArrayList&lt;&gt;();</b>
+&nbsp;
+<b class="fc">&nbsp;        Resource newResource = resourceResolver.getResource(NEWS_FEED_DATA_PATH);</b>
+&nbsp;        //Getting news feed resource
+<b class="fc">&nbsp;        if(Objects.nonNull(newResource)){</b>
+<b class="fc">&nbsp;            LOG.info(&quot;News Feed Data Found&quot;);</b>
+<b class="fc">&nbsp;            Iterator&lt;Resource&gt; resource = newResource.listChildren();</b>
+<b class="fc">&nbsp;            while (resource.hasNext()) {</b>
+&nbsp;                //Getting ValueMap
+<b class="fc">&nbsp;                ValueMap valueMap = resource.next().getValueMap();</b>
+<b class="fc">&nbsp;                NewsFeed newsFeed = new NewsFeed();</b>
+<b class="fc">&nbsp;                newsFeed.setTitle(valueMap.get(&quot;title&quot;, String.class));</b>
+<b class="fc">&nbsp;                newsFeed.setAuthor(valueMap.get(&quot;author&quot;, String.class));</b>
+<b class="fc">&nbsp;                newsFeed.setDescription(valueMap.get(&quot;description&quot;, String.class));</b>
+<b class="fc">&nbsp;                newsFeed.setUrl(valueMap.get(&quot;url&quot;, String.class));</b>
+<b class="fc">&nbsp;                newsFeed.setUrlImage(valueMap.get(&quot;urlImage&quot;, String.class));</b>
+&nbsp;                //store all the value in list
+<b class="fc">&nbsp;                newsFeeds.add(newsFeed);</b>
+<b class="fc">&nbsp;            }</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;NewsFeed&gt; getNewsFeeds() {
+<b class="fc">&nbsp;        return newsFeeds;</b>
+&nbsp;    }
+&nbsp;        
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-26 16:50</div>
+</div>
+</body>
+</html>
